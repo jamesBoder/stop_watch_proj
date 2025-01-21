@@ -1,3 +1,5 @@
+
+
 class StopWatch extends React.Component {
   constructor(props) {
     super(props);
@@ -6,6 +8,7 @@ class StopWatch extends React.Component {
     }
 
     this.timer = null;
+
     this.start = this.start.bind(this);
     this.stop = this.stop.bind(this); 
     this.reset = this.reset.bind(this);
@@ -20,6 +23,7 @@ class StopWatch extends React.Component {
       this.timer = setInterval(() => {
         const stopTime = Date.now();
         const timePassedInMilliSeconds = stopTime - startTime + this.state.timePassedInMilliSeconds;
+
         this.setState({
           timePassedInMilliSeconds,
         });
@@ -52,16 +56,16 @@ class StopWatch extends React.Component {
     return (
       <div>
         <h2 className="border px-3 py-4 rounded my-3 mx-auto text-center" style={{maxWidth: "300px"}}>
-          {Math.floor(this.state.timePassedInMilliSeconds / 1000)} s
+          {Math.floor(this.state.timePassedInMilliSeconds / 1000)} 
         </h2>
         <div className="d-flex justify-content-center">
-          <button className="btn btn-outline-primary mr-2">
+          <button className="btn btn-outline-primary mr-2" onClick={this.start}>
             start
           </button>
-          <button className="btn btn-outline-danger mr-2">
+          <button className="btn btn-outline-danger mr-2" onClick={this.stop}>
             stop
           </button>
-          <button className="btn btn-outline-warning">
+          <button className="btn btn-outline-warning" onClick={this.reset}>
             reset
           </button>
         </div>
